@@ -1,4 +1,4 @@
-package com.system.base.param;
+package com.wx.base.param;
 
 import java.io.Serializable;
 
