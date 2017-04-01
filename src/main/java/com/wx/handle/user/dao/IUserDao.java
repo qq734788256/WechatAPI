@@ -7,4 +7,6 @@ import java.util.Map;
 public interface IUserDao {
 
     User getUserInfo(Map<String, String> queryParam);
+
+    User getUserById(int id);
 }

@@ -15,4 +15,8 @@
             </if>
         </where>
     </select>
+
+    <select id="getUserById" parameterType="java.util.Map" resultType="User">
+        select <include refid="Base_Column_Info" />  from user where id = #{id}
+    </select>
 </mapper>

@@ -18,4 +18,9 @@ public class UserDaoImpl implements IUserDao {
     public User getUserInfo(Map<String, String> queryParam) {
         return userMapper.getUserInfo(queryParam);
     }
+
+    @Override
+    public User getUserById(int id) {
+        return userMapper.getUserById(id);
+    }
 }
