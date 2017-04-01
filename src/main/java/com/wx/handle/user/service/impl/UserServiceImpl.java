@@ -1,10 +1,8 @@
 package com.wx.handle.user.service.impl;
 
-import com.wx.base.entity.User;
-import com.wx.base.result.User.UserResult;
+import com.wx.base.result.user.UserResult;
 import com.wx.handle.user.dao.IUserDao;
 import com.wx.handle.user.service.IUserService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -18,8 +16,6 @@ public class UserServiceImpl implements IUserService {
     @Override
     public UserResult getUserInfo() {
         UserResult r = new UserResult();
-        User user = userDao.getUserInfo();
-        BeanUtils.copyProperties(user,r);
         return r;
     }
 }

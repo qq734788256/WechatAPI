@@ -178,19 +178,19 @@ public class AesUtil {
 		return (realPassword.equals(param));
 	}
 	/**
-	 * 用户session加密
+	 * 用户token加密
 	 * @param userInfo
 	 * @return
 	 */
-	public static String getUserSession(String userInfo){
+	public static String getUserToken(String userInfo){
 		return doEncrypt(userInfo, infoKey);
 	}
 	/**
-	 * 用户session解密
+	 * 用户token解密
 	 * @param info
 	 * @return
 	 */
-	public static String getUserInfo(String info){
+	public static String getUserInfoByToken(String info){
 		return doDecipher(info, infoKey);
 	}
 	/**

@@ -1,6 +1,6 @@
 package com.wx.handle.user.service;
 
-import com.wx.base.result.User.UserResult;
+import com.wx.base.result.user.UserResult;
 
 public interface IUserService {
 

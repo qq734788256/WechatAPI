@@ -4,6 +4,7 @@ import com.wx.base.param.BaseParam;
 
 public class LoginParam extends BaseParam {
 
+    private static final long serialVersionUID = 4017725455848168049L;
     private String userName;
     private String password;
 

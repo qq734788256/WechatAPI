@@ -2,7 +2,9 @@ package com.wx.handle.user.dao;
 
 import com.wx.base.entity.User;
 
+import java.util.Map;
+
 public interface IUserDao {
 
-    User getUserInfo();
+    User getUserInfo(Map<String, String> queryParam);
 }

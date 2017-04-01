@@ -24,7 +24,7 @@ public class BaseResult implements Serializable {
 	/**
 	 * 结果提示语
 	 */
-	private String message;
+	private String message = ResultStatus.SUCCESS;
 
 	public int getStatusCode() {
 		return statusCode;

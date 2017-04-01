@@ -1,20 +1,19 @@
-package com.wx.base.result.User;
+package com.wx.base.token;
 
-import com.wx.base.result.BaseResult;
+import java.io.Serializable;
 
 /**
- * 用户结果
+ * 用户信息token处理
  */
-public class UserResult extends BaseResult {
+public class UserToken implements Serializable {
+
+    private static final long serialVersionUID = -3353933013477872541L;
     private int id;
     private String cardNumber;
     private String userName;
-    private String password;
     private String phone;
     private String createTime;
     private int roleId;
-    private String money;
-    private int status;
 
     public int getId() {
         return id;
@@ -40,14 +39,6 @@ public class UserResult extends BaseResult {
         this.userName = userName;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getPhone() {
         return phone;
     }
@@ -70,21 +61,5 @@ public class UserResult extends BaseResult {
 
     public void setRoleId(int roleId) {
         this.roleId = roleId;
-    }
-
-    public String getMoney() {
-        return money;
-    }
-
-    public void setMoney(String money) {
-        this.money = money;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
     }
 }
