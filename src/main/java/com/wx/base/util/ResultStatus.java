@@ -8,6 +8,8 @@ public class ResultStatus {
 	public static final int FAIL_CODE = 400;
 	// 服务器故障状态码
 	public static final int SERVER_ERROR_CODE = 500;
+	// token异常状态码
+	public static final int TOKEN_ERROR_CODE = 502;
 	
 	// 成功
 	public static final String SUCCESS = "success";
@@ -24,6 +26,8 @@ public class ResultStatus {
 	public static final String ADD_SUCCESS = "添加成功";
 	// 操作成功
 	public static final String OPRATE_SUCCESS = "操作成功";
+	// 用户失效
+	public static final String USER_INVILIDE = "用户登录失效";
 	// 用户名或密码不能为空
 	public static final String LOGIN_PARAM_NULL = "用户名或密码不能为空";
 	// 用户被禁用

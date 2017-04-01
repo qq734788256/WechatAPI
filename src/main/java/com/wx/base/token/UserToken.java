@@ -10,7 +10,6 @@ public class UserToken implements Serializable {
     private static final long serialVersionUID = -3353933013477872541L;
     private int id;
     private String cardNumber;
-    private String userName;
     private String phone;
     private String createTime;
     private int roleId;
@@ -29,14 +28,6 @@ public class UserToken implements Serializable {
 
     public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public String getPhone() {

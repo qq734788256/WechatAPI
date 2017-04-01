@@ -13,4 +13,18 @@
 
 	<context:component-scan base-package="com.wx.handle" />
 
+	<!-- 配置MVC拦截器 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean class="com.wx.intercepter.SystemIntercepter">
+				<property name="uncheckUrls">
+					<list>
+						<value>/login.wx</value>
+						<value>/token/error.wx</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 </beans>
