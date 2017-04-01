@@ -43,12 +43,15 @@ public class SystemIntercepter implements HandlerInterceptor {
             request.getRequestDispatcher("/token/error.wx").forward(request,response);
             return true;
         }
+
+        // 解析token
         try {
             UserToken userToken = JacksonUtil.toObject(AesUtil.getUserInfoByToken(token), UserToken.class);
             if(userToken == null){
                 request.getRequestDispatcher("/token/error.wx").forward(request,response);
                 return true;
             }
+            // 获取用户
             User user = userDao.getUserById(userToken.getId());
             if(user == null || user.getStatus() != 0){
                 // 用户为空或者被禁
