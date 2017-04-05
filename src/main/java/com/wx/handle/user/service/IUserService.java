@@ -4,6 +4,6 @@ import com.wx.base.result.user.UserResult;
 
 public interface IUserService {
 
-    UserResult getUserInfo();
+    UserResult getUserInfo(int userId);
 
 }

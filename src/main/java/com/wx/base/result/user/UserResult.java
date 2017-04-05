@@ -11,12 +11,11 @@ public class UserResult extends BaseResult {
     private int id;
     private String cardNumber;
     private String userName;
-    private String password;
     private String phone;
     private String createTime;
-    private int roleId;
     private String money;
-    private int status;
+    private String statusInfo;
+    private String role;
 
     public int getId() {
         return id;
@@ -42,14 +41,6 @@ public class UserResult extends BaseResult {
         this.userName = userName;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getPhone() {
         return phone;
     }
@@ -66,14 +57,6 @@ public class UserResult extends BaseResult {
         this.createTime = createTime;
     }
 
-    public int getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
-    }
-
     public String getMoney() {
         return money;
     }
@@ -82,11 +65,19 @@ public class UserResult extends BaseResult {
         this.money = money;
     }
 
-    public int getStatus() {
-        return status;
+    public String getStatusInfo() {
+        return statusInfo;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setStatusInfo(String statusInfo) {
+        this.statusInfo = statusInfo;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

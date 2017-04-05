@@ -40,7 +40,7 @@ public class SystemIntercepter implements HandlerInterceptor {
         // 获取token
         String token = request.getHeader("UToken");
         if(CommonUtil.isBlank(token)){
-            request.getRequestDispatcher("/token/error.wx").forward(request,response);
+            request.getRequestDispatcher("/wxapi/token/error.wx").forward(request,response);
             return true;
         }
 
@@ -48,18 +48,18 @@ public class SystemIntercepter implements HandlerInterceptor {
         try {
             UserToken userToken = JacksonUtil.toObject(AesUtil.getUserInfoByToken(token), UserToken.class);
             if(userToken == null){
-                request.getRequestDispatcher("/token/error.wx").forward(request,response);
+                request.getRequestDispatcher("/wxapi/token/error.wx").forward(request,response);
                 return true;
             }
             // 获取用户
             User user = userDao.getUserById(userToken.getId());
             if(user == null || user.getStatus() != 0){
                 // 用户为空或者被禁
-                request.getRequestDispatcher("/token/error.wx").forward(request,response);
+                request.getRequestDispatcher("/wxapi/token/error.wx").forward(request,response);
                 return true;
             }
         } catch (Exception e) {
-            request.getRequestDispatcher("/token/error.wx").forward(request,response);
+            request.getRequestDispatcher("/wxapi/token/error.wx").forward(request,response);
         }
         return true;
     }
