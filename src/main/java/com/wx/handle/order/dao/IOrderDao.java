@@ -1,7 +1,9 @@
 package com.wx.handle.order.dao;
 
-/**
- * Created by wangyunlong on 17/4/3.
- */
+import com.wx.base.entity.Order;
+
+import java.util.List;
+
 public interface IOrderDao {
+    List<Order> queryOrderList(int userId, int pageNo, int pageSize);
 }

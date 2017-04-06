@@ -1,7 +1,12 @@
 package com.wx.handle.order.mapper;
 
-/**
- * Created by wangyunlong on 17/4/3.
- */
+import com.wx.base.entity.Order;
+
+import java.util.List;
+import java.util.Map;
+
 public interface IOrderMapper {
+
+    List<Order> queryOrderList(Map<String, Object> param);
+
 }

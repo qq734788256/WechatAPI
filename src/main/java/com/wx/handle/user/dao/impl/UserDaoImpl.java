@@ -23,4 +23,9 @@ public class UserDaoImpl implements IUserDao {
     public User getUserById(int id) {
         return userMapper.getUserById(id);
     }
+
+    @Override
+    public int updateUserInfo(User user) {
+        return userMapper.updateUserInfo(user);
+    }
 }

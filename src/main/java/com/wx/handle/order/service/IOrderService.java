@@ -1,7 +1,16 @@
 package com.wx.handle.order.service;
 
-/**
- * Created by wangyunlong on 17/4/3.
- */
+import com.wx.base.result.order.OrderListResult;
+
 public interface IOrderService {
+
+    /**
+     * 获取订单列表
+     *
+     * @param userId
+     * @param pageNo
+     * @param pageSize
+     * @return
+     */
+    OrderListResult queryOrderList(int userId, int pageNo, int pageSize);
 }

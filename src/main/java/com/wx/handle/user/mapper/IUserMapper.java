@@ -9,4 +9,6 @@ public interface IUserMapper {
     User getUserInfo(Map<String, String> queryParam);
 
     User getUserById(int id);
+
+    int updateUserInfo(User user);
 }

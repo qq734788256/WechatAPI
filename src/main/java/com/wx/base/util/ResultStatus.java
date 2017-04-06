@@ -26,6 +26,8 @@ public class ResultStatus {
 	public static final String ADD_SUCCESS = "添加成功";
 	// 操作成功
 	public static final String OPRATE_SUCCESS = "操作成功";
+	// 操作失败
+	public static final String OPRATE_FAIL = "操作失败";
 	// 用户失效
 	public static final String USER_INVILIDE = "用户登录失效";
 	// 用户名或密码不能为空
@@ -34,5 +36,7 @@ public class ResultStatus {
 	public static final String USER_NO_USED = "用户不可用";
 	// 用户名或密码错误
 	public static final String LOGIN_PARAM_ERROR = "用户名或密码错误";
+	// 旧密码错误
+	public static final String OLD_PASSWORD_ERROR = "旧密码错误";
 
 }
