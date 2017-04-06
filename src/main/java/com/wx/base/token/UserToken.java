@@ -13,6 +13,7 @@ public class UserToken implements Serializable {
     private String phone;
     private String createTime;
     private int roleId;
+    private int updateTime;
 
     public int getId() {
         return id;
@@ -52,5 +53,13 @@ public class UserToken implements Serializable {
 
     public void setRoleId(int roleId) {
         this.roleId = roleId;
+    }
+
+    public int getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(int updateTime) {
+        this.updateTime = updateTime;
     }
 }

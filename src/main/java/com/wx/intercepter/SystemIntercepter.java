@@ -58,6 +58,11 @@ public class SystemIntercepter implements HandlerInterceptor {
                 request.getRequestDispatcher("/token/error.wx").forward(request,response);
                 return false;
             }
+            if(user.getUpdateTime() != userToken.getUpdateTime()){
+                // 用户信息更新
+                request.getRequestDispatcher("/token/error.wx").forward(request,response);
+                return false;
+            }
         } catch (Exception e) {
             request.getRequestDispatcher("/token/error.wx").forward(request,response);
             return false;

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wx.handle.user.mapper.IUserMapper">
 
-    <sql id="Base_Column_Info">id,card_number,user_name,password,phone,create_time,role_id,money,status</sql>
+    <sql id="Base_Column_Info">id,card_number,user_name,password,phone,create_time,role_id,money,status,update_time</sql>
 
     <select id="getUserInfo" parameterType="java.util.Map" resultType="User">
         select <include refid="Base_Column_Info" />  from user

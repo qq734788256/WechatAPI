@@ -1,6 +1,7 @@
 package com.wx.handle.user.dao.impl;
 
 import com.wx.base.entity.User;
+import com.wx.base.util.SysTimeUitl;
 import com.wx.handle.user.dao.IUserDao;
 import com.wx.handle.user.mapper.IUserMapper;
 import org.springframework.stereotype.Repository;
@@ -26,6 +27,7 @@ public class UserDaoImpl implements IUserDao {
 
     @Override
     public int updateUserInfo(User user) {
+        user.setUpdateTime(SysTimeUitl.getSystemTime());
         return userMapper.updateUserInfo(user);
     }
 }

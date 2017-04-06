@@ -10,6 +10,7 @@ public class User {
     private int roleId;
     private String money;
     private int status;
+    private int updateTime;
 
     public int getId() {
         return id;
@@ -81,5 +82,13 @@ public class User {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public int getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(int updateTime) {
+        this.updateTime = updateTime;
     }
 }
