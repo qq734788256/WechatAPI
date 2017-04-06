@@ -66,7 +66,7 @@ public class UserServiceImpl implements IUserService {
                 result.setMessage(ResultStatus.USER_NO_USED);
                 return result;
             }
-            if(user.getPassword().equals(MD5.parse(oldPassword))){
+            if(!user.getPassword().equals(MD5.parse(oldPassword))){
                 result.setStatusCode(ResultStatus.FAIL_CODE);
                 result.setResult(ResultStatus.FAIL);
                 result.setMessage(ResultStatus.OLD_PASSWORD_ERROR);
