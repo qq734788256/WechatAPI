@@ -19,7 +19,8 @@ public class IOrderController {
     private IOrderService orderService;
 
     @RequestMapping(value = "/list",method = RequestMethod.GET)
-    public OrderListResult queryOrderList(@RequestParam(required = true) int pageNo, @RequestParam(required = true) int pageSize, HttpServletRequest request){
+    public OrderListResult queryOrderList(@RequestParam(required = true) int pageNo, @RequestParam(required = true) int pageSize,
+                                          @RequestParam(required = true) int type, HttpServletRequest request){
         if(pageNo < 1){
             pageNo = 1;
         }
@@ -27,6 +28,6 @@ public class IOrderController {
             pageSize = 10;
         }
         int userId = UserUtil.getUserId(request);
-        return orderService.queryOrderList(userId,pageNo,pageSize);
+        return orderService.queryOrderList(userId,type,pageNo,pageSize);
     }
 }

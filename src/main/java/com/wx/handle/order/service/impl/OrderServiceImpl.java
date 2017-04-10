@@ -19,12 +19,12 @@ public class OrderServiceImpl implements IOrderService {
     private IOrderDao orderDao;
 
     @Override
-    public OrderListResult queryOrderList(int userId, int pageNo, int pageSize) {
+    public OrderListResult queryOrderList(int userId, int type, int pageNo, int pageSize) {
         OrderListResult result = new OrderListResult();
 
         try {
             result.setHaveNext(true);
-            List<Order> orderList = orderDao.queryOrderList(userId,pageNo,pageSize);
+            List<Order> orderList = orderDao.queryOrderList(userId,type,pageNo,pageSize);
             if(orderList == null || orderList.size() < 1){
                 result.setHaveNext(false);
                 return result;

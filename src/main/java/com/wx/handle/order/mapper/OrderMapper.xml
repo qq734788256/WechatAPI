@@ -5,6 +5,6 @@
     <sql id="Basic_Column_Info">id,order_number,order_content,order_time,order_money,`type`,`user`,operate_user,status</sql>
 
     <select id="queryOrderList" parameterType="java.util.Map" resultType="Order">
-        select <include refid="Basic_Column_Info" /> from `order` where user = #{user} limit #{index},#{size}
+        select <include refid="Basic_Column_Info" /> from `order` where user = #{user} and type = #{type} limit #{index},#{size}
     </select>
 </mapper>

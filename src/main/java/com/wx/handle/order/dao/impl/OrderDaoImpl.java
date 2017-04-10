@@ -17,9 +17,10 @@ public class OrderDaoImpl implements IOrderDao {
     private IOrderMapper orderMapper;
 
     @Override
-    public List<Order> queryOrderList(int userId, int pageNo, int pageSize) {
+    public List<Order> queryOrderList(int userId, int type, int pageNo, int pageSize) {
         Map<String, Object> param = new HashMap<>();
         param.put("user", userId);
+        param.put("type", type);
         param.put("index", (pageNo - 1) * pageSize);
         param.put("size", pageSize);
         return orderMapper.queryOrderList(param);
