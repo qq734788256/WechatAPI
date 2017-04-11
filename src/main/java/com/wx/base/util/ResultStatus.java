@@ -38,5 +38,7 @@ public class ResultStatus {
 	public static final String LOGIN_PARAM_ERROR = "用户名或密码错误";
 	// 旧密码错误
 	public static final String OLD_PASSWORD_ERROR = "旧密码错误";
+	// 参数错误
+	public static final String PARAM_ERROR = "参数错误";
 
 }

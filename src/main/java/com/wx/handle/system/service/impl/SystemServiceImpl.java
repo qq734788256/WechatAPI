@@ -2,7 +2,10 @@ package com.wx.handle.system.service.impl;
 
 import com.wx.base.entity.User;
 import com.wx.base.param.system.LoginParam;
+import com.wx.base.param.system.WxOpenParam;
 import com.wx.base.result.system.LoginResult;
+import com.wx.base.result.system.WxOpenIdResult;
+import com.wx.base.result.system.WxOpenResult;
 import com.wx.base.token.UserToken;
 import com.wx.base.util.*;
 import com.wx.handle.system.service.ISystemService;
@@ -68,5 +71,19 @@ public class SystemServiceImpl implements ISystemService {
             result.setMessage(ResultStatus.SERVER_ERROR);
         }
         return result;
+    }
+
+    @Override
+    public WxOpenResult getWxOpenID(WxOpenParam param) {
+        WxOpenResult result = new WxOpenResult();
+        try{
+            String returnInfo = HttpClientUtil.connectPostHttps("https://api.weixin.qq.com/sns/jscode2session?appid="+CommonInfo.APP_ID+"&secret="+CommonInfo.APP_SECRET+"&js_code="+param.getCode()+"&grant_type=authorization_code",new HashMap<String, String>());
+            WxOpenIdResult wxOpenIdResult = JacksonUtil.toObject(returnInfo,WxOpenIdResult.class);
+            result.setOpen(AesUtil.getUserPassword(wxOpenIdResult.getOpenid()));
+        } catch (Exception ex) {
+
+        }
+
+        return null;
     }
 }

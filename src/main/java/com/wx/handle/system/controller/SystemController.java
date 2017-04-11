@@ -1,8 +1,10 @@
 package com.wx.handle.system.controller;
 
 import com.wx.base.param.system.LoginParam;
+import com.wx.base.param.system.WxOpenParam;
 import com.wx.base.result.BaseResult;
 import com.wx.base.result.system.LoginResult;
+import com.wx.base.result.system.WxOpenResult;
 import com.wx.base.util.CommonUtil;
 import com.wx.base.util.ResultStatus;
 import com.wx.handle.system.service.ISystemService;
@@ -54,5 +56,17 @@ public class SystemController {
     @RequestMapping(value = "test")
     public BaseResult testToken(){
         return new BaseResult();
+    }
+
+    @RequestMapping(value = "/openid",method = RequestMethod.POST)
+    public WxOpenResult getWxOpenID(@RequestBody WxOpenParam param){
+        if(CommonUtil.isBlank(param.getCode())){
+            WxOpenResult result = new WxOpenResult();
+            result.setStatusCode(ResultStatus.FAIL_CODE);
+            result.setResult(ResultStatus.FAIL);
+            result.setMessage(ResultStatus.PARAM_ERROR);
+            return result;
+        }
+        return systemService.getWxOpenID(param);
     }
 }
