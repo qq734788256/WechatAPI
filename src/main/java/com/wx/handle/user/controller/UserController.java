@@ -4,6 +4,7 @@ import com.wx.base.param.user.UpdatePasswordParam;
 import com.wx.base.result.BaseResult;
 import com.wx.base.result.user.UserResult;
 import com.wx.base.token.UserToken;
+import com.wx.handle.common.MongoUtil;
 import com.wx.handle.common.RedisUtil;
 import com.wx.handle.common.UserUtil;
 import com.wx.handle.user.service.IUserService;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -26,8 +29,6 @@ public class UserController {
     @RequestMapping("/info")
     public UserResult getUserInfo(HttpServletRequest request){
         int userId = UserUtil.getUserId(request);
-
-        RedisUtil.addUser();
         return userService.getUserInfo(userId);
     }
 
