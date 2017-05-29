@@ -72,8 +72,6 @@ public class UserServiceImpl implements IUserService {
                 result.setMessage(ResultStatus.OLD_PASSWORD_ERROR);
                 return result;
             }
-            user = new User();
-            user.setId(userId);
             user.setPassword(MD5.parse(newPassword));
             if(userDao.updateUserInfo(user) < 1){
                 result.setStatusCode(ResultStatus.FAIL_CODE);

@@ -1,7 +1,10 @@
 package com.wx.handle.user.dao.impl;
 
+import com.mongodb.Mongo;
 import com.wx.base.entity.User;
 import com.wx.base.util.SysTimeUitl;
+import com.wx.handle.common.MongoUtil;
+import com.wx.handle.common.RedisUtil;
 import com.wx.handle.user.dao.IUserDao;
 import com.wx.handle.user.mapper.IUserMapper;
 import org.springframework.stereotype.Repository;
@@ -22,12 +25,31 @@ public class UserDaoImpl implements IUserDao {
 
     @Override
     public User getUserById(int id) {
-        return userMapper.getUserById(id);
+        User user = MongoUtil.get("user","id",id,User.class);
+        if(user == null){
+            user = userMapper.getUserById(id);
+            // 防止击穿
+            if(user == null){
+                user = new User();
+                user.setId(id);
+                user.setRoleId(-999);
+            }
+            MongoUtil.insert("user",user);
+        } else {
+            if(user.getRoleId() == -999){
+                user = null;
+            }
+        }
+        return user;
     }
 
     @Override
     public int updateUserInfo(User user) {
         user.setUpdateTime(SysTimeUitl.getSystemTime());
-        return userMapper.updateUserInfo(user);
+        int result = userMapper.updateUserInfo(user);
+        if(result > 0){
+            MongoUtil.update("user", "id", user.getId(), user);
+        }
+        return result;
     }
 }

@@ -36,7 +36,7 @@ public class MongoUtil {
     public static <T> void insert(String collectionName, T t){
         /******   save与insert的区别  save为insertOrUpdate   insert仅为insert   *****/
         // mongoTemplate.save(t, collectionName);
-        mongoTemplate.insert(getDBObject(t), collectionName);
+        mongoTemplate.insert(t, collectionName);
     }
 
     /**
@@ -46,7 +46,7 @@ public class MongoUtil {
      * @param <T>
      */
     public static <T> void insertBatch(String collectionName, List<T> list){
-        mongoTemplate.insert(getDBObjects(list), collectionName);
+        mongoTemplate.insert(list, collectionName);
     }
 
     /**
@@ -128,7 +128,7 @@ public class MongoUtil {
      * @param <T>
      */
     public static <T> void update(String collectionName, String field, Object value, T t){
-        mongoTemplate.upsert(new Query(Criteria.where(field).is(value)), getUpdate(t), collectionName);
+        mongoTemplate.updateFirst(new Query(Criteria.where(field.equals("id") ? "_id" : field).is(value)), getUpdate(t), collectionName);
     }
 
     /**
@@ -213,7 +213,7 @@ public class MongoUtil {
             if ("serialVersionUID".equals(field.getName())) continue;
             field.setAccessible(true);
             try {
-                update.push(field.getName(), field.get(t));
+                update.set(field.getName(), field.get(t));
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
