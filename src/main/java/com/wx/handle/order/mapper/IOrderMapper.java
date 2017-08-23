@@ -9,4 +9,5 @@ public interface IOrderMapper {
 
     List<Order> queryOrderList(Map<String, Object> param);
 
+    int insertOrder(Order order);
 }

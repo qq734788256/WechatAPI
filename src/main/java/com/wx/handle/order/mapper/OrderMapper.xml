@@ -7,4 +7,11 @@
     <select id="queryOrderList" parameterType="java.util.Map" resultType="Order">
         select <include refid="Basic_Column_Info" /> from `order` where user = #{user} and type = #{type} limit #{index},#{size}
     </select>
+
+    <insert id="insertOrder" parameterType="Order">
+        insert into `order`
+        (order_number,order_content,order_time,order_money,`type`,`user`,operate_user,status)
+        VALUES
+        (#{orderNumber},#{orderContent},#{orderTime},#{orderMoney},#{type},#{user},#{operateUser},#{status})
+    </insert>
 </mapper>

@@ -1,11 +1,16 @@
 package com.wx.handle.order.service.impl;
 
 import com.wx.base.entity.Order;
+import com.wx.base.result.BaseResult;
 import com.wx.base.result.order.OrderListResult;
+import com.wx.base.util.OrderUtil;
+import com.wx.base.util.ResultStatus;
+import com.wx.base.util.SysTimeUitl;
 import com.wx.base.vo.Order.OrderVO;
 import com.wx.handle.order.dao.IOrderDao;
 import com.wx.handle.order.service.IOrderService;
 import org.springframework.beans.BeanUtils;
+import org.springframework.core.annotation.OrderUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -53,6 +58,40 @@ public class OrderServiceImpl implements IOrderService {
             result.setOrders(orders);
         } catch (Exception e){
             e.printStackTrace();
+            result.setStatusCode(ResultStatus.SERVER_ERROR_CODE);
+            result.setResult(ResultStatus.ERROR);
+            result.setMessage(ResultStatus.SERVER_ERROR);
+        }
+
+        return result;
+    }
+
+    /**
+     * 初始化订单数据
+     * @param order
+     * @return
+     */
+    @Override
+    public BaseResult initOrder(Order order) {
+        BaseResult result = new BaseResult();
+
+        try {
+            order.setOrderTime(String.valueOf(SysTimeUitl.getSystemTime()));
+            order.setOrderNumber(OrderUtil.getOrderNumber());
+            order.setStatus(3);
+            int count = orderDao.insertOrder(order);
+            if(count > 0){
+
+            } else {
+                result.setStatusCode(ResultStatus.FAIL_CODE);
+                result.setResult(ResultStatus.FAIL);
+                result.setMessage("");
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+            result.setStatusCode(ResultStatus.SERVER_ERROR_CODE);
+            result.setResult(ResultStatus.ERROR);
+            result.setMessage(ResultStatus.SERVER_ERROR);
         }
 
         return result;

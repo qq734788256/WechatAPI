@@ -1,10 +1,8 @@
 package com.wx.handle.user.dao.impl;
 
-import com.mongodb.Mongo;
 import com.wx.base.entity.User;
 import com.wx.base.util.SysTimeUitl;
 import com.wx.handle.common.MongoUtil;
-import com.wx.handle.common.RedisUtil;
 import com.wx.handle.user.dao.IUserDao;
 import com.wx.handle.user.mapper.IUserMapper;
 import org.springframework.stereotype.Repository;

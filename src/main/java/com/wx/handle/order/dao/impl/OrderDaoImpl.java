@@ -25,4 +25,9 @@ public class OrderDaoImpl implements IOrderDao {
         param.put("size", pageSize);
         return orderMapper.queryOrderList(param);
     }
+
+    @Override
+    public int insertOrder(Order order) {
+        return orderMapper.insertOrder(order);
+    }
 }

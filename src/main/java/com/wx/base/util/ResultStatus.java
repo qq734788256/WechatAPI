@@ -40,5 +40,7 @@ public class ResultStatus {
 	public static final String OLD_PASSWORD_ERROR = "旧密码错误";
 	// 参数错误
 	public static final String PARAM_ERROR = "参数错误";
+	// 超出范围
+	public static final String BEYOND_SHOP = "抱歉，您的位置超出取件范围（10KM内）";
 
 }
