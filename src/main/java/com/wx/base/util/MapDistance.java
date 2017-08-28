@@ -55,7 +55,7 @@ public class MapDistance {
                 + Math.cos(radLat1) * Math.cos(radLat2)
                 * Math.pow(Math.sin(mdifference / 2), 2)));
         distance = distance * EARTH_RADIUS;
-        distance = Math.round(distance * 10000) / 10000;
+        distance = Math.round(distance * 10000) / 10000 / 1000;
         String distanceStr = distance+"";
         distanceStr = distanceStr.
                 substring(0, distanceStr.indexOf("."));

@@ -51,6 +51,8 @@ public class OrderServiceImpl implements IOrderService {
                 } else if(status == 2){
                     orderVO.setStatusInfo("已完成");
                 } else if(status == 3){
+                    orderVO.setStatusInfo("待商家确认");
+                } else if(status == -1){
                     orderVO.setStatusInfo("已失效");
                 }
                 orders.add(orderVO);
